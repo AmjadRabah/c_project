@@ -1,5 +1,4 @@
 name: CMake
-
 on: [push]
 
 env:
@@ -33,12 +32,8 @@ jobs:
       # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
       run: ctest -C ${{env.BUILD_TYPE}}
       
-    - name: Build and Push Docker Image 
-      uses: mr-smithers-excellent/docker-build-push@v5
-      with:
-          image: amjadrabah/dockerrep
-          registry: docker.io
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+
+
+
           
       
