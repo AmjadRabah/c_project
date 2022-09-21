@@ -1,2 +1,5 @@
-from alpine
-cmd ["echo", "start bulid"]
+FROM alpine:latest
+RUN mkdir -p /app
+COPY build /app
+WORKDIR /app
+CMD ["/app/bulid"]
