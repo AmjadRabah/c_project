@@ -1,4 +1,4 @@
-name: CMake
+name: Ci/Cd
 on: [push]
 
 env:
@@ -35,9 +35,11 @@ jobs:
       uses: mr-smithers-excellent/docker-build-push@v5
       with:
         image: amjadrabah/dockerrepository
-        registry: docker.io
-        username: amjadrabah
-        password: Amra12345
+        tags: latest
+        registry: registry-url.io
+        dockerfile: Dockerfile
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
 
 
 
