@@ -1,5 +1,5 @@
      name: DockerBuild container
-     on: [CMake]
+     on: [push]
      jobs: 
        build-container:
           name: Build container
