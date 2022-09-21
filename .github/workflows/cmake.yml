@@ -1,10 +1,6 @@
 name: CMake
 
-on:
-  push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+on: [push]
 
 env:
   # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
@@ -26,8 +22,10 @@ jobs:
       run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
 
     - name: Build
+      working-directory: ${{github.workspace}}
+      shell: bash
       # Build your program with the given configuration
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+      run: cmake --build . --config $BUILD_TYPE
 
     - name: Test
       working-directory: ${{github.workspace}}/build
